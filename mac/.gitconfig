@@ -1,0 +1,24 @@
+[core]
+	autoCRLF = false
+	editor = vim
+[user]
+	name = Hao Jiang
+	email = tonyjiangh@gmail.com
+[commit]
+	template = /Users/jiang/.stCommitMsg
+[alias]
+    st = status
+    cm = commit
+    ss = stash save
+    sp = stash pop
+    sh = stash
+    mg = merge
+    pl = pull
+    ps = push
+    co = checkout
+    b = branch
+    bd = branch -D
+	ch = !git_checkout
+    re = rebase
+    chp = cherry-pick
+    graph = log --pretty=format:\"%h %cn %s\" --graph -n15

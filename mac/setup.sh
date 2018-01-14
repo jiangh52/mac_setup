@@ -1,53 +1,45 @@
 #!/bin/sh
 
 echo "==>" Copy dot/setting files
-cp ./.bashrc ./.profile ./.vimrc ~/
+cp ./.bashrc ./.profile ./.vimrc ./.gitconfig ~/
 cp -r ./.vim ./.jupyter ~/
 
 echo "==>" Install Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-echo "==>" Install git via homebrew
-brew install git
+echo "==>" Install and setup git via homebrew
+brew install git git-flow
+git config --global core.editor
 
 echo "==>" Install bash-complete via homebrew
 brew install bash-completion
 
-echo "==>" Load .bashrc
-source ~/.bashrc
-
-echo "==>" Install dein.vim to ~/.cache/dein/
-if [ ! -e "~/.cache/dein/" ]; then
-    mkdir -p ~/.cache/dein 
-fi
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein/
-rm -f ./installer.sh
-
-echo "==>" Start installing python environment
-
-echo "  1. Install pyenv"
-git clone https://github.com/yyuu/pyenv.git ~/.pyenv
-
-echo "  2. Install miniconda"
-NEWEST_CONDA=`pyenv install -l | grep miniconda3 | tail -n1 | sed -e "s/ //g"`
-pyenv install $NEWEST_CONDA
-pyenv rehash
-pyenv global $NEWEST_CONDA
-echo 'export PATH="$PYENV_ROOT/versions/'$NEWEST_CONDA'/bin/:$PATH"' >> ~/.bashrc
-echo 'export CPLUS_INCLUDE_PATH="~/.pyenv/versions/'$NEWEST_CONDA'/include"' >> ~/.bashrc
-source ~/.bashrc
-
-echo "  3. Update conda packages"
-conda update conda
-conda install -y numpy pandas matplotlib seaborn scikit-learn jupyter
-
-echo "  FINISH python environment construction"
 echo "==>" Install mecab via homebrew
 brew install mecab mecab-ipadic
 
 echo "==>" Install cabocha via homebrew 
 brew install cabocha
+
+echo "==>" Install spark via homebrew 
+brew install apache-spark
+
+echo "==>" Install scala via homebrew 
+brew install scala@2.11
+
+echo "==>" Install others via homebrew 
+brew install tig tree sqlite unrar codeclimate
+
+echo "==>" Load .bashrc
+source ~/.bashrc
+
+echo "==>" Start installing python environment
+echo "  1. Install python"
+brew install python
+
+echo "  2. Install packages"
+pip install awscli bz2file bokeh cython docutils gensim ggplot graphviz holoviews html5lib ipython jupyter matplotlib networkx numpy pandas pathlib2 pillow pip plotly psycopg2 py4j pycodestyle pymysql pyspark PyYAML scikit-learn scipy seaborn sqlalchemy sqlite stemming urllib3 wheel 
+
+echo "  3. FINISH python environment construction"
 
 echo "==>" Start installing ruby environment
 echo "  1. Install rbenv ruby-build"
@@ -61,14 +53,16 @@ echo "  2. Install rails"
 gem install rails
 rbenv rehash
 
-echo "  FINISH ruby environment construction"
+echo "  3. FINISH ruby environment construction"
 
 echo "====================
 A list of things to install:
 ######(Tools)#########
 Sublime: https://www.sublimetext.com/
 Slack: https://slack.com/downloads/osx
-Evernote: https://evernote.com/intl/jp/download/
+Boostnote: https://boostnote.io/
+Quicksilver: https://qsapp.com/download.php
+Charles: https://www.charlesproxy.com/
 KeePassX: https://www.keepassx.org/
 MySQL Workbench: https://dev.mysql.com/downloads/workbench/
 Dash: https://kapeli.com/dash
@@ -82,8 +76,16 @@ Sublime Package:
     - ConvertToUTF8
     - Codecs33
     - DashDoc
+    - All Autocomplete
+    - Python Completions
+    - Ruby Completions
+    - Ruby Slim
+    - SideBarEnhancement
+    - SublimeLinter
+    - termX
+    - HTML5
 Sublime BuildEnvironment
-    - Python3
+    - python
 Sublime Setting
     - cp Preferences.sublime-settings '/Users/jiang/Library/Application Support/Sublime Text 3/Packages/User/'
 "
