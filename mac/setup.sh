@@ -14,18 +14,6 @@ git config --global core.editor
 echo "==>" Install bash-complete via homebrew
 brew install bash-completion
 
-echo "==>" Install mecab via homebrew
-brew install mecab mecab-ipadic
-
-echo "==>" Install cabocha via homebrew 
-brew install cabocha
-
-echo "==>" Install spark via homebrew 
-brew install apache-spark
-
-echo "==>" Install scala via homebrew 
-brew install scala@2.11
-
 echo "==>" Install others via homebrew 
 brew install tig tree sqlite unrar codeclimate
 
@@ -55,37 +43,3 @@ rbenv rehash
 
 echo "  3. FINISH ruby environment construction"
 
-echo "====================
-A list of things to install:
-######(Tools)#########
-Sublime: https://www.sublimetext.com/
-Slack: https://slack.com/downloads/osx
-Boostnote: https://boostnote.io/
-Quicksilver: https://qsapp.com/download.php
-Charles: https://www.charlesproxy.com/
-KeePassX: https://www.keepassx.org/
-MySQL Workbench: https://dev.mysql.com/downloads/workbench/
-Dash: https://kapeli.com/dash
-
-######(Entertainment)#######
-Spotify: https://www.spotify.com/jp/download/other/
-
-######(Other settings)#######
-Sublime Package Control: https://packagecontrol.io/installation
-Sublime Package:
-    - ConvertToUTF8
-    - Codecs33
-    - DashDoc
-    - All Autocomplete
-    - Python Completions
-    - Ruby Completions
-    - Ruby Slim
-    - SideBarEnhancement
-    - SublimeLinter
-    - termX
-    - HTML5
-Sublime BuildEnvironment
-    - python
-Sublime Setting
-    - cp Preferences.sublime-settings '/Users/jiang/Library/Application Support/Sublime Text 3/Packages/User/'
-"

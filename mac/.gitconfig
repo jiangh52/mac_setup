@@ -1,6 +1,7 @@
 [core]
 	autoCRLF = false
 	editor = vim
+	excludesfile = ~/.gitignore
 [user]
 	name = Hao Jiang
 	email = tonyjiangh@gmail.com
